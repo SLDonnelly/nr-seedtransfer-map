@@ -31,7 +31,35 @@ define([
     "esri/geometry/support/webMercatorUtils",
     "esri/layers/KMLLayer"
 
-], function (Map, MapView, FeatureLayer, GraphicsLayer, LayerList, TextBoxInput, Print, BasemapGallery, Search, Legend, DistanceMeasurement2D, AreaMeasurement2D, ScaleBar, urlUtils, SimpleMarkerSymbol, Color, PopupTemplate, Expand, request, Field, Graphic, Track, InputField, FeatureForm, FeatureTemplates, webMercatorUtils, KMLLayer) {
+], function (
+    Map,
+    MapView,
+    FeatureLayer,
+    GraphicsLayer,
+    LayerList,
+    TextBoxInput,
+    Print,
+    BasemapGallery,
+    Search,
+    Legend,
+    DistanceMeasurement2D,
+    AreaMeasurement2D,
+    ScaleBar,
+    urlUtils,
+    SimpleMarkerSymbol,
+    Color,
+    PopupTemplate,
+    Expand,
+    request,
+    Field,
+    Graphic,
+    Track,
+    InputField,
+    FeatureForm,
+    FeatureTemplates,
+    webMercatorUtils,
+    KMLLayer
+) {
 
     var map, view, xy;
     var layerButton;
@@ -41,39 +69,25 @@ define([
     var suitRenderer, nonSuitRenderer;
     var portalUrl = "https://www.arcgis.com";
     
-    template = {
+    var template = {
         title : "Selected {MAP_Label}",
     };
 
 
-    return {
-        mapInit: mapInit,
-        fullExtent: fullExtent,
-        clearLyrs: clearLyrs,
-        addLayers: addLayers,
-        updateLayer: updateLayer,
-        displaySPU: displaySPU,
-        updatePopup: updatePopup,
-        clearCutBlock: clearCutBlock,
-    };
-
     suitRenderer = {
         type: "simple-fill",
-            color: [217, 95, 2, 0.4],
-            outline:{ 
-                color: [115, 76, 0, 1]
-            }
+        color: [217, 95, 2, 0.4],
+        outline:{ 
+            color: [115, 76, 0, 1]
+        }
     };
     nonSuitRenderer = {
         type: "simple-fill",
-            color: [170, 102, 205, 0.4],
-            outline:{ 
-                color: [76, 0, 115, 1]
-            }
+        color: [170, 102, 205, 0.4],
+        outline:{ 
+            color: [76, 0, 115, 1]
+        }
     };
-    
-
-
 
     /* 
      * Initialize the map and all layers and functionality
@@ -102,10 +116,6 @@ define([
                 }
             }
         });
-
-  
-  
-
 
         // Make the layers
         layerInit();
@@ -712,7 +722,16 @@ define([
         }
     }
 
+    // Export public API at end of module
+    return {
+        mapInit: mapInit,
+        fullExtent: fullExtent,
+        clearLyrs: clearLyrs,
+        addLayers: addLayers,
+        updateLayer: updateLayer,
+        displaySPU: displaySPU,
+        updatePopup: updatePopup,
+        clearCutBlock: clearCutBlock,
+    };
+
 });
-
-
-
